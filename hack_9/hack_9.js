@@ -1,3 +1,4 @@
+const fetch = require("cross-fetch");
 /*
 - Mediante la libreria: fetch
 - Hacer una petición de tipo: POST
@@ -6,8 +7,19 @@
 */
 
 async function fnTest() {
-  //...
-  return 
+  const URL = "https://jsonplaceholder.typicode.com/posts";
+  const REQUEST = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id: 101 }),
+  };
+
+  let response = await fetch(URL, REQUEST);
+  let data = await response.json();
+
+  return data;
 }
 
 module.exports = fnTest;

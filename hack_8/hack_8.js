@@ -1,4 +1,4 @@
-const fetch = require('cross-fetch');
+const fetch = require("cross-fetch");
 
 /*
 - Mediante la libreria: fetch
@@ -8,8 +8,11 @@ const fetch = require('cross-fetch');
 */
 
 async function fnTest() {
-  //...
-  return
+  const URL = "https://jsonplaceholder.typicode.com/posts";
+
+  let response = await fetch(URL);
+  let data = await response.json();
+  return data.length;
 }
 
 module.exports = fnTest;
